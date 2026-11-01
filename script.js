@@ -61,3 +61,31 @@ player.addEventListener("keydown", function(event)
         button.click();
     }
 });
+
+async function getUser()
+{
+    try
+    {
+        const response = await fetch("https://jsonplaceholder.typicode.com/invalid-endpoint");
+        if (!response.ok)
+        {
+            throw new Error("Failed to retrieve data");
+        }
+        const data = await response.json();
+        console.log(data.name);
+        console.log(data.email);
+        console.log(data.address.city);
+    }
+
+    catch (error) 
+    {
+        console.log(error.message);
+    }   
+}
+
+
+
+
+
+
+getUser();
