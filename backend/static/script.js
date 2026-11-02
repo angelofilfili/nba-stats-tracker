@@ -83,6 +83,31 @@ async function getUser()
     }   
 }
 
+async function getPlayer()
+{
+    try{
+        const response = await fetch("http://127.0.0.1:5000/api/player");
+        if (!response.ok)
+        {
+            throw new Error("Failed to retrieve player");
+        }
+        const data = await response.json();
+
+        console.log(data.name);
+        console.log(data.pts);
+        console.log(data.reb);
+        console.log(data.ast);
+    }
+
+    catch (error)
+    {
+        console.log(error.message);
+    }
+    
+}
+
+getPlayer();
+
 
 
 
